@@ -1,22 +1,22 @@
 <?php
+
 namespace WeDevs\ORM\Eloquent;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 /**
- * Model Class
- *
- * @package WeDevs\ERP\Framework
+ * Model Class.
  */
-abstract class Model extends Eloquent {
-
+abstract class Model extends Eloquent
+{
     /**
      * @param array $attributes
      */
-    public function __construct( array $attributes = array() ) {
+    public function __construct(array $attributes = [])
+    {
         static::$resolver = new Resolver();
 
-        parent::__construct( $attributes );
+        parent::__construct($attributes);
     }
 
     /**
@@ -24,7 +24,8 @@ abstract class Model extends Eloquent {
      *
      * @return \Illuminate\Database\Connection
      */
-    public function getConnection() {
+    public function getConnection()
+    {
         return Database::instance();
     }
 
@@ -36,13 +37,14 @@ abstract class Model extends Eloquent {
      *
      * @return string
      */
-    public function getTable() {
-        if ( isset( $this->table ) ) {
+    public function getTable()
+    {
+        if (isset($this->table)) {
             return $this->table;
         }
 
-        $table = str_replace( '\\', '', snake_case( str_plural( class_basename( $this ) ) ) );
+        $table = str_replace('\\', '', snake_case(str_plural(class_basename($this))));
 
-        return $this->getConnection()->db->prefix . $table ;
+        return $this->getConnection()->db->prefix.$table;
     }
 }
