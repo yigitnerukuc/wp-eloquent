@@ -2,17 +2,13 @@
 
 namespace WeDevs\ORM\WP;
 
-
 use WeDevs\ORM\Eloquent\Model;
 
 /**
- * Class Post
- *
- * @package WeDevs\ORM\WP
+ * Class Post.
  */
 class Post extends Model
 {
-
     protected $post_type = null;
     protected $primaryKey = 'ID';
 
@@ -20,7 +16,7 @@ class Post extends Model
     const UPDATED_AT = 'post_modified';
 
     /**
-     * Filter by post type
+     * Filter by post type.
      *
      * @param $query
      * @param string $type
@@ -33,7 +29,7 @@ class Post extends Model
     }
 
     /**
-     * Filter by post status
+     * Filter by post status.
      *
      * @param $query
      * @param string $status
@@ -46,7 +42,7 @@ class Post extends Model
     }
 
     /**
-     * Filter by post author
+     * Filter by post author.
      *
      * @param $query
      * @param null $author
@@ -61,7 +57,7 @@ class Post extends Model
     }
 
     /**
-     * Get comments from the post
+     * Get comments from the post.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -71,7 +67,7 @@ class Post extends Model
     }
 
     /**
-     * Get meta fields from the post
+     * Get meta fields from the post.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
